@@ -9,6 +9,8 @@
 	},
 	"apps": [
 		{
+			"name": "angular",
+			"platform": "browser",
 			"root": "View",
 			"outDir": "dist",
 			"assets": [
@@ -25,6 +27,24 @@
 				"styles.css",
 				"../node_modules/bootstrap/dist/css/bootstrap.min.css"
 			],
+			"scripts": [ ],
+			"environmentSource": "environments/environment.ts",
+			"environments": {
+				"dev": "environments/environment.ts",
+				"prod": "environments/environment.prod.ts"
+			}
+		},
+		{
+			"name": "dotnet",
+			"platform": "server",
+			"root": "View",
+			"outDir": "Node",
+			"assets": [
+				"assets"
+			],
+			"main": "main.server.ts",
+			"tsconfig": "tsconfig.server.json",
+			"prefix": "app",
 			"scripts": [ ],
 			"environmentSource": "environments/environment.ts",
 			"environments": {
