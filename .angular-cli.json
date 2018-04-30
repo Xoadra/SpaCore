@@ -9,7 +9,7 @@
 	},
 	"apps": [
 		{
-			"root": "src",
+			"root": "View",
 			"outDir": "dist",
 			"assets": [
 				"assets"
