@@ -12,9 +12,9 @@
 			"name": "angular",
 			"platform": "browser",
 			"root": "View",
-			"outDir": "dist",
+			"outDir": "Exe",
 			"assets": [
-				"assets"
+				"../Root/assets"
 			],
 			"index": "index.html",
 			"main": "main.ts",
@@ -24,7 +24,7 @@
 			"testTsconfig": "tsconfig.spec.json",
 			"prefix": "app",
 			"styles": [
-				"styles.css",
+				"../Root/css/styles.css",
 				"../node_modules/bootstrap/dist/css/bootstrap.min.css"
 			],
 			"scripts": [ ],
@@ -40,7 +40,7 @@
 			"root": "View",
 			"outDir": "Node",
 			"assets": [
-				"assets"
+				"../Root/assets"
 			],
 			"main": "main.server.ts",
 			"tsconfig": "tsconfig.server.json",

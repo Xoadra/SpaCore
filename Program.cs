@@ -16,7 +16,7 @@ namespace SpaCore {
 		
         public static IWebHostBuilder CreateWebHostBuilder( string[ ] args ) =>
             WebHost.CreateDefaultBuilder( args )
-				.UseWebRoot( "Root" )
+				.UseWebRoot( "Exe" )
                 .UseStartup<Startup>( );
 		
     }

@@ -24,9 +24,9 @@
 		<DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
 	</ItemGroup>
 	
-	<ItemGroup>
+	<!-- <ItemGroup> -->
 		<!-- Don't publish the SPA source files, but do show them in the project files list -->
-		<Content Remove="$(SpaRoot)**" />
+		<!-- <Content Remove="$(SpaRoot)**" />
 		<None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
 	</ItemGroup>
 	
@@ -34,9 +34,9 @@
 		Name="DebugEnsureNodeEnv"
 		BeforeTargets="Build"
 		Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') "
-	>
+	> -->
 		<!-- Ensure Node.js is installed -->
-		<Exec Command="node --version" ContinueOnError="true">
+		<!-- <Exec Command="node -version" ContinueOnError="true">
 			<Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
 		</Exec>
 		<Error
@@ -47,25 +47,25 @@
 		<Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
 	</Target>
 	
-  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
-    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
-    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
-    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build -- --prod" />
-    <Exec
-		WorkingDirectory="$(SpaRoot)"
-		Command="npm run build:ssr -- --prod"
-		Condition=" '$(BuildServerSideRenderer)' == 'true' "
-	/>
-    <!-- Include the newly-built files in the publish output -->
-		<ItemGroup>
-			<DistFiles Include="$(SpaRoot)dist\**; $(SpaRoot)Node\**" />
+	<Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish"> -->
+		<!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+		<!-- <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+		<Exec WorkingDirectory="$(SpaRoot)" Command="npm run build - -prod" />
+		<Exec
+			WorkingDirectory="$(SpaRoot)"
+			Command="npm run build:ssr - -prod"
+			Condition=" '$(BuildServerSideRenderer)' == 'true' "
+		/> -->
+		<!-- Include the newly-built files in the publish output -->
+		<!-- <ItemGroup>
+			<DistFiles Include="$(SpaRoot)Exe\**; $(SpaRoot)Node\**" />
 			<DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
 			<ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
 					<RelativePath>%(DistFiles.Identity)</RelativePath>
 					<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 			</ResolvedFileToPublish>
 		</ItemGroup>
-	</Target>
+	</Target> -->
 	
 </Project>
 
