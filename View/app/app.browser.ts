@@ -39,7 +39,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component'
 } )
 
 
-export class AppModule {  }
+export class ViewModule {  }
 
 
 

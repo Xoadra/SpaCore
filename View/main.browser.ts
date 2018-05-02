@@ -6,7 +6,7 @@ import { enableProdMode } from '@angular/core'
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
 import { environment } from './environments/environment'
 
-import { AppModule } from './app/app.module'
+import { ViewModule } from './app/app.browser'
 
 
 
@@ -22,6 +22,6 @@ const providers = [
 if ( environment.production ) { enableProdMode( ) }
 
 
-platformBrowserDynamic( providers ).bootstrapModule( AppModule ).catch( err => console.log( err ) )
+platformBrowserDynamic( providers ).bootstrapModule( ViewModule ).catch( err => console.log( err ) )
 
 

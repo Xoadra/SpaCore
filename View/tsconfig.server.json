@@ -9,7 +9,7 @@
 		"module": "commonjs"
 	},
 	"angularCompilerOptions": {
-		"entryModule": "app/app.server#NodeModule"
+		"entryModule": "app/app.server#CoreModule"
 	}
 }
 

@@ -11,7 +11,7 @@ import { renderModule, renderModuleFactory } from '@angular/platform-server'
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader'
 import { createServerRenderer } from 'aspnet-prerendering'
 
-export { NodeModule } from './app/app.server'
+export { CoreModule } from './app/app.server'
 
 
 
@@ -19,7 +19,7 @@ enableProdMode( )
 
 
 export default createServerRenderer( params => {
-	const { NodeModule, NodeModuleNgFactory, LAZY_MODULE_MAP } = ( module as any ).exports
+	const { CoreModule, CoreModuleNgFactory, LAZY_MODULE_MAP } = ( module as any ).exports
 	const options = {
 		document: params.data.originalHtml,
 		url: params.url,
@@ -29,10 +29,10 @@ export default createServerRenderer( params => {
 			{ provide: 'BASE_URL', useValue: params.origin + params.baseUrl }
 		]
 	}
-	const renderPromise = NodeModuleNgFactory
-		? /* AoT */ renderModuleFactory( NodeModuleNgFactory, options )
-		: /* dev */ renderModule( NodeModule, options )
-	return renderPromise.then( html => ( { html } ) )
+	const render = CoreModuleNgFactory
+		? /* AoT */ renderModuleFactory( CoreModuleNgFactory, options )
+		: /* dev */ renderModule( CoreModule, options )
+	return render.then( html => ( { html } ) )
 } )
 
 
