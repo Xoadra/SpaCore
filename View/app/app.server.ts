@@ -4,7 +4,7 @@
 
 import { NgModule } from '@angular/core'
 import { ServerModule } from '@angular/platform-server'
-import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader'
+/* import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader' */
 
 import { ViewModule } from './app.browser'
 
@@ -15,8 +15,8 @@ import { AppComponent } from './app.component'
 @NgModule( {
 	imports: [
 		ViewModule,
-		ServerModule,
-		ModuleMapLoaderModule
+		ServerModule
+		/* ModuleMapLoaderModule */
 	],
 	bootstrap: [ AppComponent ]
 } )
