@@ -61,8 +61,8 @@
 			<DistFiles Include="$(SpaRoot)Exe\**; $(SpaRoot)Node\**" />
 			<DistFiles Include="$(SpaRoot)node_modules\**" Condition="'$(BuildServerSideRenderer)' == 'true'" />
 			<ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
-					<RelativePath>%(DistFiles.Identity)</RelativePath>
-					<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+				<RelativePath>%(DistFiles.Identity)</RelativePath>
+				<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 			</ResolvedFileToPublish>
 		</ItemGroup>
 	</Target> -->

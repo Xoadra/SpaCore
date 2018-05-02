@@ -4,6 +4,7 @@
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +24,15 @@ namespace SpaCore {
 		
 		public void ConfigureServices( IServiceCollection services ) {
 			services.AddMvc( );
+			// Node server activation for prerendering single page apps
+			services.AddNodeServices( );
+			services.Configure<RazorViewEngineOptions>( razor => {
+				// Overwrite the razor view engine's default view location
+				razor.ViewLocationFormats.Clear( );
+				// Identify custom path names for the razor view engine
+				razor.ViewLocationFormats.Add( "~/Web/{1}/{0}" + RazorViewEngine.ViewExtension );
+				razor.ViewLocationFormats.Add( "~/Web/Shared/{0}" + RazorViewEngine.ViewExtension );
+			} );
 			// In production mode, the Angular files will be served from this directory
 			services.AddSpaStaticFiles( configuration => {
 				configuration.RootPath = "Exe";
@@ -39,6 +49,7 @@ namespace SpaCore {
 			/* app.UseSpaStaticFiles( ); */
 			app.UseMvc( routes => {
 				routes.MapRoute( name: "default", template: "{controller}/{action=Index}/{id?}" );
+				routes.MapSpaFallbackRoute( "spa-fallback", new { controller = "Home", action = "Index" } );
 			} );
 			app.UseSpa( spa => {
 				// Output location of the built Angular file bundles loaded in the browser
@@ -59,5 +70,6 @@ namespace SpaCore {
 		
 	}
 }
+
 
 

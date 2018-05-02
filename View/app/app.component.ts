@@ -3,6 +3,7 @@
 
 
 import { Component } from '@angular/core'
+import { Title } from '@angular/platform-browser'
 
 
 
@@ -17,7 +18,14 @@ export class AppComponent {
 	
 	title: string = 'app'
 	
+	
+	constructor( private _title: Title ) {  }
+	
+	
+	ngOnInit( ) {
+		this._title.setTitle( 'SpaCore' )
+	}
+	
 }
-
 
 

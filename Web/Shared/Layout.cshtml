@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+
+
+<html>
+	
+	<head>
+		<base href="@( Url.Content( "~/" ) )" />
+		<title> @ViewData[ "Title" ] </title>
+		
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<!-- Head tags reapplied via server prerendered Razor syntax -->
+		@Html.Raw( ViewData[ "Meta" ] )
+		@Html.Raw( ViewData[ "Links" ] )
+		
+		<link href="~/styles.bundle.css" rel="stylesheet"/>
+		@Html.Raw( ViewData[ "Styles" ] )
+	</head>
+	
+	<body>
+		@RenderBody( )
+		
+		<!-- Data that will be grabbed by and parsed by the frontend -->
+		@Html.Raw( ViewData[ "Data" ] )
+		@Html.Raw( ViewData[ "Scripts" ] )
+		
+		@RenderSection( "Scripts", required: false )
+	</body>
+	
+</html>
+
+
+
