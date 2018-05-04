@@ -9,8 +9,9 @@
 	"scripts": {
 		"ng": "ng",
 		"start": "ng serve --extract-css",
-		"build": "ng build --extract-css",
-		"build:ssr": "npm run build -- --app=dotnet --output-hashing=media",
+		"build": "ng build --extract-css && npm run razor",
+		"prerender": "npm run build -- --app=dotnet --output-hashing=media",
+		"razor": "rm -rf exe/index.html",
 		"test": "ng test",
 		"lint": "ng lint",
 		"e2e": "ng e2e"
@@ -57,5 +58,6 @@
 		"typescript": "^2.6.2"
 	}
 }
+
 
 

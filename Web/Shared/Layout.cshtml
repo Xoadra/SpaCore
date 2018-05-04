@@ -13,9 +13,11 @@
 		
 		<!-- Head tags reapplied via server prerendered Razor syntax -->
 		@Html.Raw( ViewData[ "Meta" ] )
-		@Html.Raw( ViewData[ "Links" ] )
 		
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
 		<link href="~/styles.bundle.css" rel="stylesheet"/>
+		
+		@Html.Raw( ViewData[ "Links" ] )
 		@Html.Raw( ViewData[ "Styles" ] )
 	</head>
 	

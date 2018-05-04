@@ -59,7 +59,7 @@ namespace SpaCore {
 					options.BootModulePath = $"{ spa.Options.SourcePath }/Node/main.bundle.js";
 					options.BootModuleBuilder = env.IsDevelopment( )
 						// Generates the development mode server-side rendered bundle
-						? new AngularCliBuilder( npmScript: "build:ssr" ) : null;
+						? new AngularCliBuilder( npmScript: "prerender" ) : null;
 					// Not sure what this does since identity of sockjs-node is a mystery
 					options.ExcludeUrls = new[ ] { "/sockjs-node" };
 				} );
