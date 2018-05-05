@@ -14,7 +14,8 @@
 			"root": "View",
 			"outDir": "Exe",
 			"assets": [
-				"../Root/assets"
+				"../Root/img",
+				"../Root/favicon.ico"
 			],
 			"index": "index.html",
 			"main": "main.browser.ts",
@@ -40,7 +41,8 @@
 			"root": "View",
 			"outDir": "Node",
 			"assets": [
-				"../Root/assets"
+				"../Root/img",
+				"../Root/favicon.ico"
 			],
 			"main": "main.server.ts",
 			"tsconfig": "tsconfig.server.json",

@@ -43,7 +43,7 @@ namespace SpaCore {
 			if ( env.IsDevelopment( ) ) { app.UseDeveloperExceptionPage( ); }
 			else { app.UseExceptionHandler( "/Home/Error" ); }
 			// Allows SPA files to be reached by the browser, but reason is unknown
-			app.UseDefaultFiles( ); 
+			app.UseDefaultFiles( );
 			app.UseStaticFiles( );
 			// Unsure of the purpose for this configuration as it appears to do nothing
 			/* app.UseSpaStaticFiles( ); */
