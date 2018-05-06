@@ -14,8 +14,8 @@
 			"root": "View",
 			"outDir": "Exe",
 			"assets": [
-				{ "glob": "favicon.ico", "input": "../Root", "output": "" },
-				{ "glob": "**/*", "input": "../Root/img", "output": "img" }
+				{ "glob": "favicon.ico", "input": "../root", "output": "" },
+				{ "glob": "**/*", "input": "../root/img", "output": "img" }
 			],
 			"index": "index.html",
 			"main": "main.browser.ts",
@@ -25,7 +25,7 @@
 			"testTsconfig": "tsconfig.spec.json",
 			"prefix": "app",
 			"styles": [
-				"../Root/css/styles.css",
+				"../root/css/styles.css",
 				"../node_modules/bootstrap/dist/css/bootstrap.min.css"
 			],
 			"scripts": [ ],
@@ -41,12 +41,17 @@
 			"root": "View",
 			"outDir": "Node",
 			"assets": [
-				{ "glob": "favicon.ico", "input": "../Root", "output": "" },
-				{ "glob": "**/*", "input": "../Root/img", "output": "img" }
+				{ "glob": "favicon.ico", "input": "../root", "output": "" },
+				{ "glob": "**/*", "input": "../root/img", "output": "img" }
 			],
+			"index": "",
 			"main": "main.server.ts",
+			"polyfills": "",
+			"test": "",
 			"tsconfig": "tsconfig.server.json",
+			"testTsconfig": "",
 			"prefix": "app",
+			"styles": [ ],
 			"scripts": [ ],
 			"environmentSource": "environments/environment.ts",
 			"environments": {
@@ -59,8 +64,9 @@
 		"protractor": { "config": "./protractor.conf.js" }
 	},
 	"lint": [
-		{ "project": "src/tsconfig.app.json", "exclude": "**/node_modules/**" },
-		{ "project": "src/tsconfig.spec.json", "exclude": "**/node_modules/**" },
+		{ "project": "view/tsconfig.browser.json", "exclude": "**/node_modules/**" },
+		{ "project": "view/tsconfig.server.json", "exclude": "**/node_modules/**" },
+		{ "project": "view/tsconfig.spec.json", "exclude": "**/node_modules/**" },
 		{ "project": "e2e/tsconfig.e2e.json", "exclude": "**/node_modules/**" }
 	],
 	"test": {

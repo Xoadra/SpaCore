@@ -31,7 +31,7 @@ namespace SpaCore {
 				razor.ViewLocationFormats.Clear( );
 				// Identify custom path names for the razor view engine
 				razor.ViewLocationFormats.Add( "~/Web/{1}/{0}" + RazorViewEngine.ViewExtension );
-				razor.ViewLocationFormats.Add( "~/Web/Shared/{0}" + RazorViewEngine.ViewExtension );
+				razor.ViewLocationFormats.Add( "~/Web/Base/{0}" + RazorViewEngine.ViewExtension );
 			} );
 			// In production mode, the Angular files will be served from this directory
 			services.AddSpaStaticFiles( configuration => {
@@ -48,7 +48,7 @@ namespace SpaCore {
 			// Unsure of the purpose for this configuration as it appears to do nothing
 			/* app.UseSpaStaticFiles( ); */
 			app.UseMvc( routes => {
-				routes.MapRoute( name: "default", template: "{controller}/{action=Index}/{id?}" );
+				routes.MapRoute( name: "default", template: "{controller}/{action}/{id?}" );
 				routes.MapSpaFallbackRoute( "spa-fallback", new { controller = "Home", action = "Index" } );
 			} );
 			app.UseSpa( spa => {
