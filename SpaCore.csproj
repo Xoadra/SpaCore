@@ -53,7 +53,7 @@
 		<Exec WorkingDirectory="$(SpaRoot)" Command="npm run build - -prod" />
 		<Exec
 			WorkingDirectory="$(SpaRoot)"
-			Command="npm run build:ssr - -prod"
+			Command="npm run prerender - -prod"
 			Condition=" '$(BuildServerSideRenderer)' == 'true' "
 		/> -->
 		<!-- Include the newly-built files in the publish output -->

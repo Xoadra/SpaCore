@@ -14,8 +14,8 @@
 			"root": "View",
 			"outDir": "Exe",
 			"assets": [
-				"../Root/img",
-				"../Root/favicon.ico"
+				{ "glob": "favicon.ico", "input": "../Root", "output": "" },
+				{ "glob": "**/*", "input": "../Root/img", "output": "img" }
 			],
 			"index": "index.html",
 			"main": "main.browser.ts",
@@ -41,8 +41,8 @@
 			"root": "View",
 			"outDir": "Node",
 			"assets": [
-				"../Root/img",
-				"../Root/favicon.ico"
+				{ "glob": "favicon.ico", "input": "../Root", "output": "" },
+				{ "glob": "**/*", "input": "../Root/img", "output": "img" }
 			],
 			"main": "main.server.ts",
 			"tsconfig": "tsconfig.server.json",
