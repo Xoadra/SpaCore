@@ -9,10 +9,6 @@ import { enableProdMode } from '@angular/core'
 import { createServerRenderer } from 'aspnet-prerendering'
 // Allows server-side prerendering of Angular content
 import { ngAspnetCoreEngine, IEngineOptions, createTransferScript } from '@nguniversal/aspnetcore-engine'
-// May require these in the future for production builds
-/* import { renderModule, renderModuleFactory } from '@angular/platform-server'
-const { CoreModuleNgFactory } = require( './app/app.server.ngfactory' ) */
-/* import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader' */
 
 export { CoreModule } from './app/app.server'
 
@@ -30,11 +26,9 @@ export default createServerRenderer( core => {
 	const ops: IEngineOptions = {
 		appSelector: '<app-root></app-root>',
 		// Only works without environment checks now
-		ngModule: CoreModule,
+		ngModule: CoreModuleNgFactory,
 		request: core,
 		providers: [
-			// Not sure of full purpose, but removes errors
-			/* provideModuleMap( lazyModuleMap ), */
 			// Enables api data loading without JavaScript
 			{ provide: baseHref, useValue: core.baseUrl },
 			{ provide: baseUrl, useValue: core.origin + core.baseUrl }

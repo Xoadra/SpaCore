@@ -5,6 +5,8 @@
 import { Component, Inject } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 
+import { baseUrl } from '../../origins'
+
 
 
 @Component( {
@@ -18,7 +20,7 @@ export class FetchDataComponent {
 	public forecasts: WeatherForecast[ ]
 	
 	
-	constructor( @Inject( 'BASE_URL' ) baseUrl: string, http: HttpClient ) {
+	constructor( @Inject( baseUrl ) baseUrl: string, http: HttpClient ) {
 		http.get<WeatherForecast[ ]>( baseUrl + 'api/SampleData/WeatherForecasts' ).subscribe(
 			result => { this.forecasts = result },
 			error => console.error( error )

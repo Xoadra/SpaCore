@@ -57,6 +57,16 @@
 						"outputPath": "Node",
 						"main": "view/main.server.ts",
 						"tsConfig": "view/tsconfig.server.json"
+					},
+					"configurations": {
+						"production": {
+							"fileReplacements": [
+								{
+									"replace": "view/main.server.ts",
+									"with": "view/main.production.ts"
+								}
+							]
+						}
 					}
 				},
 				"serve": {

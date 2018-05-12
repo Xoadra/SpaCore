@@ -10,8 +10,11 @@
 		"ng": "ng",
 		"start": "ng serve --extract-css",
 		"build": "npm run view && npm run core",
+		"production": "npm run view:prod && npm run core:prod",
 		"view": "ng run spacore:view --extract-css && npm run razor",
+		"view:prod": "ng run spacore:view:production --extract-css && npm run razor",
 		"core": "ng run spacore:core --output-hashing=media",
+		"core:prod": "ng run spacore:core:production --output-hashing=media",
 		"razor": "rm -rf exe/index.html",
 		"test": "ng test",
 		"lint": "ng lint",
@@ -60,6 +63,5 @@
 		"typescript": "^2.7.2"
 	}
 }
-
 
 
