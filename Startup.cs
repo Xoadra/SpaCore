@@ -56,7 +56,8 @@ namespace SpaCore {
 				spa.Options.SourcePath = "Exe";
 				spa.UseSpaPrerendering( options => {
 					// Location to output and read files built for server-side prerendering
-					options.BootModulePath = $"{ spa.Options.SourcePath }/Node/main.js";
+					/* options.BootModulePath = $"{ spa.Options.SourcePath }/Node/main.js"; */
+					options.BootModulePath = "Node/main.js";
 					/* options.BootModuleBuilder = env.IsDevelopment( )
 						// Generates the development mode server-side rendered bundle
 						? new AngularCliBuilder( npmScript: "core" ) : null; */
@@ -64,12 +65,11 @@ namespace SpaCore {
 					options.ExcludeUrls = new[ ] { "/sockjs-node" };
 				} );
 				// Builds Angular files when running dotnet run in development mode
-				/* if ( env.IsDevelopment( ) ) { spa.UseAngularCliServer( npmScript: "view" ); } */
+				if ( env.IsDevelopment( ) ) { spa.UseAngularCliServer( npmScript: "build" ); }
 			} );
 		}
 		
 	}
 }
-
 
 

@@ -11,7 +11,7 @@ import { createServerRenderer } from 'aspnet-prerendering'
 import { ngAspnetCoreEngine, IEngineOptions, createTransferScript } from '@nguniversal/aspnetcore-engine'
 // May require these in the future for production builds
 /* import { renderModule, renderModuleFactory } from '@angular/platform-server'
-const { NetCoreModuleNgFactory } = require( './app/app.server.ngfactory' ) */
+const { CoreModuleNgFactory } = require( './app/app.server.ngfactory' ) */
 /* import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader' */
 import { environment } from './environments/environment'
 
@@ -30,7 +30,9 @@ export default createServerRenderer( core => {
 	const { CoreModule, CoreModuleNgFactory, lazyModuleMap } = ( module as any ).exports
 	const ops: IEngineOptions = {
 		appSelector: '<app-root></app-root>',
-		ngModule: environment.production ? CoreModuleNgFactory : CoreModule,
+		// Broken with Angular 6, now requiring AoT builds
+		/* ngModule: environment.production ? CoreModuleNgFactory : CoreModule, */
+		ngModule: CoreModuleNgFactory,
 		request: core,
 		providers: [
 			// Not sure of full purpose, but removes errors
