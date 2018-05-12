@@ -45,7 +45,7 @@ namespace SpaCore.Prerender {
 			CancellationTokenSource origin = new CancellationTokenSource( );
 			CancellationToken exe = origin.Token;
 			// Locate the generated server-side bundle used for the initial prerendering
-			JavaScriptModuleExport js = new JavaScriptModuleExport( root + "/Node/main.bundle" );
+			JavaScriptModuleExport js = new JavaScriptModuleExport( root + "/Node/main" );
 			// Serialize and prerender the frontend app as a universal/isomorphic one
 			return await Prerenderer.RenderToString( "/", node, exe, js, url, path, data, 30000, trans.PathBase.ToString( ) );
 		}
